@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASK 5</title>
+</head>
+<body>
+    
+    <!--(1).Do the below programs in anonymous function & IIFE
+            Print odd numbers in an array
+            Convert all the strings to title caps in a string array
+            Sum of all numbers in an array
+            Return all the prime numbers in an array
+            Return all the palindromes in an array
+            Return median of two sorted arrays of the same size.
+            Remove duplicates from an array
+            Rotate an array by k times
+ -->
+
+ <script>
+    //(a).Print odd numbers in an array
+    //anonymous function
+    const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+        const oddNumbers = arr.filter(function(num) {
+        return num % 2 !== 0;
+        });
+
+    console.log(oddNumbers); 
+
+    //IIFE
+    const arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+        const oddNumbers1 = (function(arr) {
+        return arr.filter(function(num) {
+            return num % 2 !== 0;
+        });
+        })(arr);
+
+    console.log(oddNumbers1); 
+
+    //(b).Convert all the strings to title caps in a string array
+        //anonymous function
+    const strArr = ['hello', 'world', 'how', 'are', 'you'];
+
+        const titleCaseArr = strArr.map(function(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+        });
+
+    console.log(titleCaseArr); 
+    //IIFE    
+    const strArr1 = ['hello', 'world', 'how', 'are', 'you'];
+
+        const titleCaseArr1 = (function(arr) {
+        return arr.map(function(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        });
+        })(strArr);
+
+    console.log(titleCaseArr1); 
+    //(c).Sum of all numbers in an array
+        //anonymous function
+        const arr2 = [1, 2, 3, 4, 5];
+
+            const sum = arr2.reduce(function(acc, num) {
+            return acc + num;
+        }, 0);
+
+    console.log(sum); // Output: 15
+        //IIFE 
+    const arr3 = [1, 2, 3, 4, 5];
+
+        const sum1 = (function(arr) {
+        return arr3.reduce(function(acc, num) {
+            return acc + num;
+        }, 0);
+        })(arr);
+
+    console.log(sum); // Output: 15
+
+  //(d).Return all the prime numbers in an array
+    //anonymous function
+
+    const arr4 = [2, 3, 4, 5, 6, 7, 8, 9];
+
+        const primeArr = arr4.filter(function(num) {
+        for(let i = 2; i < num; i++) {
+            if(num % i === 0) {
+            return false;
+            }
+        }
+        return num !== 1;
+        });
+
+    console.log(primeArr); 
+    //IIFE
+    const arr5 = [2, 3, 4, 5, 6, 7, 8, 9];
+
+        const primeArr1 = (function(arr) {
+        return arr5.filter(function(num) {
+            for(let i = 2; i < num; i++) {
+            if(num % i === 0) {
+                return false;
+            }
+            }
+            return num !== 1;
+        });
+        })(arr);
+
+    console.log(primeArr1); 
+
+   //(e).Return all the palindromes in an array
+        //anonymous function
+    const arr6 = ['racecar', 'level', 'hello', 'world', 'deified'];
+
+        const palindromeArr = arr6.filter(function(str) {
+        const reverseStr = str.split('').reverse().join('');
+        return str === reverseStr;
+        });
+
+    console.log(palindromeArr); 
+        //IIFE
+
+    const arr7 = ['racecar', 'level', 'hello', 'world', 'deified'];
+
+        const palindromeArr1 = (function(arr) {
+        return arr7.filter(function(str) {
+            const reverseStr = str.split('').reverse().join('');
+            return str === reverseStr;
+        });
+        })(arr7);
+
+    console.log(palindromeArr1); // Output: ["racecar", "level", "deified"]
+
+    //(f).Return median of two sorted arrays of the same size.
+        //anonymous function:
+        const array = [1, 2, 3, 4, 5];
+        const array2 = [6, 7, 8, 9, 10];
+
+        const median = function(array1, array2) {
+        const merged = [...array1, ...array2];
+        const sorted = merged.sort((a, b) => a - b);
+        const len = sorted.length;
+        
+        if(len % 2 === 0) {
+            return (sorted[len/2 - 1] + sorted[len/2]) / 2;
+        } else {
+            return sorted[Math.floor(len/2)];
+        }
+        }(array1, array2);
+
+        console.log(median); 
+
+         //IIFE
+        const val = [1, 2, 3, 4, 5];
+        const val1 = [6, 7, 8, 9, 10];
+
+        const median1 = (function(val, val1) {
+        const merged = [...val, ...val1];
+        const sorted = merged.sort((a, b) => a - b);
+        const len = sorted.length;
+        
+        if(len % 2 === 0) {
+            return (sorted[len/2 - 1] + sorted[len/2]) / 2;
+        } else {
+            return sorted[Math.floor(len/2)];
+        }
+        })(val, val1);
+
+        console.log(median); 
+
+    //(g)Remove duplicates from an array
+        //anonymous function:
+        const a = [1, 2, 2, 3, 4, 4, 5];
+
+        const unique = function(a) {
+        const set = new Set(a);
+        return [...set];
+        }(a);
+
+        console.log(unique); 
+    //IIFE
+        const b = [1, 2, 2, 3, 4, 4, 5];
+
+        const unique1 = (function(b) {
+        const set = new Set(b);
+        return [...set];
+        })(b);
+
+    console.log(unique); 
+
+    //(h).Rotate an array by k times
+        //anonymous function:
+        const c = [1, 2, 3, 4, 5];
+        const k = 2;
+
+        const rotate = function(c, k) {
+        const len = c.length;
+        const rotated = [];
+        
+        for(let i = 0; i < len; i++) {
+            const newIndex = (i + k) % len;
+            rotated[newIndex] = c[i];
+        }
+        
+        return rotated;
+        }(c, k);
+
+        console.log(rotate); 
+
+
+        //IIFE:
+        const c1 = [1, 2, 3, 4, 5];
+        const k1 = 2;
+
+        const rotate1 = (function(c1, k1) {
+        const len = c1.length;
+        const rotated = [];
+        
+        for(let i = 0; i < len; i++) {
+            const newIndex = (i + k1) % len;
+            rotated[newIndex] = c1[i];
+        }
+        
+        return rotated;
+        })(c1, k1);
+
+        console.log(rotate); // Output: [4, 5, 1, 2, 3]
+
+
+
+ </script>
+
+
+</body>
+</html>

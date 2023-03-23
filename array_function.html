@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 5</title>
+</head>
+<body>
+        <script>
+            //(a).Print odd numbers in an array:
+            const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+            const oddNumbers = arr.filter(num => num % 2 !== 0);
+
+            console.log(oddNumbers); 
+
+            //(b).Convert all the strings to title caps in a string array
+            const arr1 = ['hello', 'world', 'javascript'];
+
+            const titleCaps = arr1.map(str => str.charAt(0).toUpperCase() + str.slice(1));
+
+            console.log(titleCaps); 
+            //(c).Sum of all numbers in an array
+
+            const arr3 = [1, 2, 3, 4, 5];
+
+            const sum = arr3.reduce((acc, cur) => acc + cur, 0);
+
+            console.log(sum); 
+            //(d).Return all the prime numbers in an array
+            const arr4 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+            const isPrime = num => {
+            if(num < 2) return false;
+            for(let i = 2; i <= Math.sqrt(num); i++) {
+                if(num % i === 0) return false;
+            }
+            return true;
+            };
+
+            const primeNumbers = arr4.filter(isPrime);
+
+            console.log(primeNumbers); 
+
+
+
+            //(e).Return all the palindromes in an array
+                
+            const arr5 = ['racecar', 'level', 'hello', 'world'];
+
+            const isPalindrome = str => str === str.split('').reverse().join('');
+
+            const palindromes = arr5.filter(isPalindrome);
+
+            console.log(palindromes); // Output: ['racecar', 'level']
+
+
+
+        </script>
+</body>
+</html>
